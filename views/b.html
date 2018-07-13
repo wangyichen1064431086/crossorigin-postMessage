@@ -9,16 +9,13 @@
 <body>
   <div>我是b</div>
   <script>
+    //document.domain = 'test.com';
     window.globalvarB = 'bbb';
-    const win = window.parent;
-    const dom = win.document;
-    const name = win.name;
-    const globalvarA = win.globalvarA;
     console.log('Child console:Values of props from the parent frame window:')
-    console.log(`win:${win}`);
-    console.log(`dom:${dom}`);
-    console.log(`name:${name}`);
-    console.log(`globalvarA:${globalvarA}`);
+    console.log(`win:${window.parent}`);
+    console.log(`dom:${window.parent.document}`);
+    console.log(`name:${window.parent.name}`);
+    console.log(`globalvarA:${window.parent.globalvarA}`);
   </script>
 </body>
 </html>

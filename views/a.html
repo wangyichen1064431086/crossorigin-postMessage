@@ -10,22 +10,18 @@
 <body>
 <div>我是a</div>
 <iframe id="otherFrame" name="otherFrame" src={{iframeUrl}}></iframe>
-
-<!-- <script>
+<script>
+  //document.domain = 'test.com';
   window.name = 'parentFrame';
   window.globalvarA = 'aaa';
   const otherFrame = document.getElementById('otherFrame');
   otherFrame.onload = function() {
-    const win = otherFrame.contentWindow;
-    const dom = win.document;
-    const name = win.name;
-    const globalvarB = win.globalvarB;
     console.log('Parent console: Values of props from the child frame window:')
-    console.log(`win:${win}`);
-    console.log(`dom:${dom}`);
-    console.log(`name:${name}`);
-    console.log(`globalvarB:${globalvarB}`);
+    console.log(`win:${otherFrame.contentWindow}`);
+    console.log(`dom:${otherFrame.contentWindow.document}`);
+    console.log(`name:${otherFrame.contentWindow.name}`);
+    console.log(`globalvarB:${otherFrame.contentWindow.globalvarB}`);
   }
-</script> -->
+</script>
 </body>
 </html>
