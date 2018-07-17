@@ -10,16 +10,13 @@
 <body>
 <div>我是a</div>
 <script>
-  //document.domain = 'test.com';
-  window.name = 'parentFrame';
-  window.globalvarA = 'aaa';
+  const data = {
+    name:'Bonnie',
+    age:26
+  }
   function onLoad() {
     const otherFrame = document.getElementById('otherFrame');
-    console.log('Parent console: Values of props from the child frame window:')
-    console.log(`win:${otherFrame.contentWindow}`);
-    console.log(`dom:${otherFrame.contentWindow.document}`);
-    console.log(`name:${otherFrame.contentWindow.name}`);
-    console.log(`globalvarB:${otherFrame.contentWindow.globalvarB}`);
+    otherFrame.contentWindow.postMessage(data,'http://sub.localhost:3001/b');
   }
 </script>
 <iframe id="otherFrame" name="otherFrame" src={{iframeUrl}} onload="onLoad()"></iframe>

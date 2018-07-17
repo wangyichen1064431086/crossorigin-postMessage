@@ -8,14 +8,15 @@
 </head>
 <body>
   <div>我是b</div>
+  <div id="messageResult"></div>
   <script>
-    //document.domain = 'test.com';
-    window.globalvarB = 'bbb';
-    console.log('Child console:Values of props from the parent frame window:')
-    console.log(`win:${window.parent}`);
-    console.log(`dom:${window.parent.document}`);
-    console.log(`name:${window.parent.name}`);
-    console.log(`globalvarA:${window.parent.globalvarA}`);
+     window.onmessage = function(e) {
+       const messageResult = document.getElementById('messageResult');
+       messageResult.innerHTML = JSON.stringify(e.data);
+       console.log(e.data);
+       console.log(e.origin);
+       console.log(e.source);
+     }
   </script>
 </body>
 </html>
